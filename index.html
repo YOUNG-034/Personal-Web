@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8ed">
+  <meta name="description" content="Creative and digital services including website development, scriptwriting, flyers, logo design, research support, and student guidance.">
+  <title>Young | Creative, Digital & Research Services</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fff8ed;
+      --surface: #ffffff;
+      --surface-light: #fff0dc;
+      --text: #20213a;
+      --muted: #65677b;
+      --accent: #f3653b;
+      --accent-dark: #d74725;
+      --sunshine: #ffcf4a;
+      --purple: #6b4ce6;
+      --line: rgba(43, 42, 69, .12);
+      --radius: 22px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 78% 6%, rgba(255, 207, 74, .25), transparent 29rem),
+        radial-gradient(ellipse at 4% 42%, rgba(107, 76, 230, .07), transparent 26rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 1rem;
+      font-weight: 750;
+      letter-spacing: -.03em;
+      text-decoration: none;
+    }
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--sunshine);
+      color: var(--text);
+      font-weight: 900;
+    }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a, .social-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    nav a:hover, .social-links a:hover { color: var(--accent-dark); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: .92rem;
+      font-weight: 750;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .button:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .button.secondary {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--text);
+    }
+    .button.secondary:hover { border-color: var(--purple); color: var(--purple); }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      align-items: center;
+      gap: 64px;
+      padding-block: 94px 100px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 20px;
+      color: var(--purple);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      width: 21px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 720px;
+      margin-bottom: 22px;
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      font-weight: 760;
+      letter-spacing: -.075em;
+      line-height: .99;
+    }
+    h1 span { color: var(--accent); }
+    .hero-copy {
+      max-width: 570px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 1.07rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .portrait-wrap { position: relative; max-width: 410px; justify-self: center; width: 100%; }
+    .portrait-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 550px;
+      border: 8px solid #ffffff;
+      border-radius: 180px 180px 30px 30px;
+      background: var(--sunshine);
+      box-shadow: 0 24px 70px rgba(43, 42, 69, .15);
+    }
+    .portrait-card::after {
+      position: absolute;
+      inset: 45% 0 0;
+      background: linear-gradient(transparent, rgba(28, 27, 45, .68));
+      content: "";
+    }
+    .portrait-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 550px;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .portrait-caption {
+      position: absolute;
+      z-index: 1;
+      right: 22px;
+      bottom: 20px;
+      left: 22px;
+      color: #ffffff;
+    }
+    .portrait-caption strong { display: block; font-size: 1.45rem; letter-spacing: -.04em; }
+    .portrait-caption span { color: rgba(255, 255, 255, .86); font-size: .9rem; }
+    .hero-sticker {
+      position: absolute;
+      z-index: 2;
+      top: 45px;
+      right: -20px;
+      display: grid;
+      width: 106px;
+      aspect-ratio: 1;
+      place-content: center;
+      border: 5px solid var(--bg);
+      border-radius: 50%;
+      background: var(--sunshine);
+      color: var(--text);
+      font-size: .78rem;
+      font-weight: 850;
+      line-height: 1.15;
+      text-align: center;
+      transform: rotate(9deg);
+    }
+    .tag {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+    section { padding-block: 76px; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+    .section-heading h2 {
+      margin-bottom: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.06em;
+      line-height: 1.1;
+    }
+    .section-heading > p { max-width: 380px; margin-bottom: 3px; color: var(--muted); }
+    .services { border-top: 1px solid var(--line); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .service-card {
+      min-height: 224px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgba(43, 42, 69, .04);
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(243, 101, 59, .5); box-shadow: 0 15px 32px rgba(43, 42, 69, .1); }
+    .service-number { color: var(--purple); font-size: .78rem; font-weight: 800; letter-spacing: .12em; }
+    .service-card h3 { margin: 25px 0 9px; font-size: 1.2rem; letter-spacing: -.03em; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .about {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+      border-top: 1px solid var(--line);
+    }
+    .about-copy { color: var(--muted); font-size: 1rem; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .principle {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--surface);
+    }
+    .principle strong { display: block; margin-bottom: 5px; font-size: .98rem; }
+    .principle span { color: var(--muted); font-size: .85rem; }
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: clamp(28px, 6vw, 58px);
+      border: 1px solid rgba(107, 76, 230, .18);
+      border-radius: 28px;
+      background: linear-gradient(120deg, #fff0dc, #eee9ff);
+    }
+    .contact h2 { margin-bottom: 12px; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.06em; line-height: 1.08; }
+    .contact p { max-width: 510px; margin-bottom: 0; color: var(--muted); }
+    .contact-actions { display: flex; flex-direction: column; gap: 12px; }
+    .contact-number { margin-top: 18px; color: var(--text); font-weight: 700; }
+    .brand-accent { color: var(--accent); }
+    .about-heading { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.06em; line-height: 1.1; }
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 28px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+    .social-links { display: flex; gap: 20px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 32px, 580px); }
+      .topbar { min-height: 70px; }
+      nav { gap: 16px; }
+      nav a:not(.button) { display: none; }
+      nav .button { min-height: 42px; padding-inline: 15px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding-block: 66px 72px; }
+      .portrait-card, .portrait-card img { min-height: 470px; }
+      .portrait-wrap { max-width: 390px; }
+      section { padding-block: 58px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 12px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .about { grid-template-columns: 1fr; gap: 24px; }
+      .contact { grid-template-columns: 1fr; }
+      .contact-actions { align-items: start; flex-direction: row; flex-wrap: wrap; }
+    }
+    @media (max-width: 480px) {
+      .service-grid, .principles { grid-template-columns: 1fr; }
+      .service-card { min-height: 190px; }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#home" aria-label="Young home">
+      <span class="brand-mark" aria-hidden="true">Y</span>
+      <span>Young <span class="brand-accent">Creative</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a class="button" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home">
+      <div>
+        <p class="eyebrow">Creative • Digital • Research</p>
+        <h1>Ideas made <span>clear.</span><br>Work made real.</h1>
+        <p class="hero-copy">I help businesses, creators, and students bring their ideas to life with thoughtful creative, digital, and research support.</p>
+        <div class="hero-actions">
+          <a class="button" href="#services">Explore my services <span aria-hidden="true">↓</span></a>
+          <a class="button secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait-card">
+          <img src="images/young-portrait.jpg" alt="Young, dressed in a suit outdoors">
+          <div class="portrait-caption">
+            <strong>Hi, I'm Young.</strong>
+            <span>Your creative and digital partner.</span>
+          </div>
+        </div>
+        <div class="hero-sticker" aria-label="Creative, digital, and research services">LET'S<br>CREATE<br>MORE</div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">What I can help with</p>
+            <h2>Services for your next big idea.</h2>
+          </div>
+          <p>Choose one service or let's combine a few to suit your project and goals.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-number">01 / WRITING</span>
+            <h3>Scriptwriting</h3>
+            <p>Clear, engaging scripts for videos, presentations, and other creative projects.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">02 / DIGITAL</span>
+            <h3>Website development</h3>
+            <p>Responsive websites that introduce your business and make it easy for customers to connect.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">03 / DESIGN</span>
+            <h3>Flyer design</h3>
+            <p>Promotional flyers that organize your message and help your offer stand out.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">04 / BRANDING</span>
+            <h3>Business logo design</h3>
+            <p>Distinctive logo concepts to give your business a recognizable visual starting point.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">05 / RESEARCH</span>
+            <h3>Business & medical research</h3>
+            <p>Research assistance, source-finding, and clear summaries. Medical research support is informational and not medical advice.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">06 / STUDENT SUPPORT</span>
+            <h3>Assignment guidance</h3>
+            <p>Study support, research guidance, and feedback to help students understand and complete their own assignments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap about" id="about">
+      <div>
+        <p class="eyebrow">A bit about how I work</p>
+        <h2 class="about-heading">Practical help, made for you.</h2>
+      </div>
+      <div class="about-copy">
+        <p>Every client and project is different. I take time to understand what you need, then focus on making the result useful, clear, and suited to your goals.</p>
+        <div class="principles">
+          <div class="principle"><strong>Made to fit</strong><span>Solutions shaped around your brief.</span></div>
+          <div class="principle"><strong>Clear communication</strong><span>Know what to expect at every step.</span></div>
+          <div class="principle"><strong>Useful outcomes</strong><span>Work designed with your audience in mind.</span></div>
+          <div class="principle"><strong>Room to collaborate</strong><span>Share your ideas and let's build on them.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="contact">
+        <div>
+          <p class="eyebrow">Have a project in mind?</p>
+          <h2>Let's make something<br>good happen.</h2>
+          <p>Tell me what you're working on and what kind of support you need. We can take it from there.</p>
+          <p class="contact-number">WhatsApp: 0116783154</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button" href="tel:0116783154">Call me <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://www.tiktok.com/@YOUNG" target="_blank" rel="noopener noreferrer">Find me on TikTok</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© <span id="year">2026</span> Young Creative. Built around your next idea.</span>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@YOUNG" target="_blank" rel="noopener noreferrer">TikTok · YOUNG</a>
+      <a href="https://www.facebook.com/young.young" target="_blank" rel="noopener noreferrer">Facebook · Young Young</a>
+    </div>
+  </footer>
+</body>
+</html>
